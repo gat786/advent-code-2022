@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -39,17 +40,16 @@ func main() {
 		}
 	}
 
-	fmt.Println("Number of elves:", number_of_elves-1)
+	sort.Ints(elves_total_calories)
 
-	var elf_with_max_calories_index int
-	var max_calories int
-	for i := 0; i < len(elves_total_calories); i++ {
-		if elves_total_calories[i] > max_calories {
-			max_calories = elves_total_calories[i]
-			elf_with_max_calories_index = i
-		}
-		// fmt.Println("Elf ", i, " has ", elves_total_calories[i], " calories.")
+	fmt.Println("Sorted calories: ", elves_total_calories)
+	var last_three []int = elves_total_calories[len(elves_total_calories)-3:]
+	fmt.Println("Last three: ", last_three)
+
+	var sum int
+	for i := 0; i < len(last_three); i++ {
+		sum = sum + last_three[i]
 	}
 
-	fmt.Println("Elf number", elf_with_max_calories_index, "has", max_calories, "calories.")
+	fmt.Println("Sum of last three: ", sum)
 }
