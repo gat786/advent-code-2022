@@ -15,7 +15,7 @@ func check(e error) {
 }
 
 func main() {
-	fmt.Println("Advent of Code Puzzle One")
+	fmt.Println("Advent of Code Puzzle Two")
 
 	data, error := os.Open("../input.txt")
 
